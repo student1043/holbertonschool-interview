@@ -22,9 +22,4 @@ for i in range(len(data)):
             k = 0
             statuscodes.clear()
     except (KeyboardInterrupt, SystemExit):
-        print("File size:", sumof)
-        for l in range(len(presets)):
-            if presets[l] in statuscodes:
-                print("{}: {}".format(presets[l], statuscodes.count(presets[l])))
-        k = 0
-        statuscodes.clear()
+        pass
