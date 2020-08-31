@@ -13,7 +13,15 @@ for i in range(len(data)):
         sumof += int(line.split('1.1"')[1].split(" ")[2])
         statuscodes.append(int(line.split('1.1"')[1].split(" ")[1]))
         k += 1
-    if k == 10:
+    try:
+        if k == 10:
+            print("File size:", sumof)
+            for l in range(len(presets)):
+                if presets[l] in statuscodes:
+                    print("{}: {}".format(presets[l], statuscodes.count(presets[l])))
+            k = 0
+            statuscodes.clear()
+    except (KeyboardInterrupt, SystemExit):
         print("File size:", sumof)
         for l in range(len(presets)):
             if presets[l] in statuscodes:
