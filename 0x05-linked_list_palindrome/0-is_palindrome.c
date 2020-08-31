@@ -17,14 +17,14 @@ listint_t *reversedlist;
 mainnode = *head;
 reversedlist = *head;
 reversedlist = reverse(reversedlist);
-while (mainnode != NULL)
+while (reversedlist != NULL)
 {
 if(mainnode->n != reversedlist->n)
 {
 return(0);
 }
-mainnode = mainnode->next;
 reversedlist = reversedlist->next;
+mainnode = mainnode->next;
 }
 return(1);
 }
@@ -46,6 +46,7 @@ next = current->next;
 current->next = prev; 
 prev = current; 
 current = next; 
-} 
+}
+
 return(prev); 
-} 
+}
