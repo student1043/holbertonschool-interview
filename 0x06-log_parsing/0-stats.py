@@ -1,35 +1,30 @@
 #!/usr/bin/python3
 """Parsing the stdin and calculating"""
 import sys
-data = sys.stdin.readlines()
-statuscodes = []
-presets = [200, 301, 400, 401, 403, 404, 405, 500]
+
+status_presets = ["200", "301", "400", "401", "403", "404", "405", "500"]
+statuscodes = [0, 0, 0, 0, 0, 0, 0, 0]
 i = 0
-l = 0
 k = 0
-leng = 0
-sumof = 0
 try:
-    for i in range(len(data)):
-        for line in data:
-            leng = line.split()
-            if len(leng) > 2:
-                sumof += int(line.split('1.1"')[1].split(" ")[2])
-                statuscodes.append(int(line.split('1.1"')[1].split(" ")[1]))
-                k += 1
-                if k == 10:
-                    print("File size:", sumof)
-                    for l in range(len(presets)):
-                        if presets[l] in statuscodes:
-                            print("{}: {}".format(presets[l], statuscodes.count(presets[l])))
-                    k = 0
-                    statuscodes.clear()
+    for line in sys.stdin:
+        splitline = line.split()
+        if len(splitline) > 2:
+            if splitline[-2] in status_presets:
+                l = status_presets.index(splitline[-2])
+                statuscodes[l] = statuscodes[l] + 1
+            i += 1
+            k = k + int(splitline[-1])
+        if i == 10:
+            i = 0
+            print("File size: {}".format(k))
+            for l in range(8):
+                if statuscodes[l] != 0:
+                    print('{}: {}'.format(status_presets[l], statuscodes[l]))
 except Exception:
     pass
 finally:
-    print("File size:", sumof)
-    for l in range(len(presets)):
-        if presets[l] in statuscodes:
-            print("{}: {}".format(presets[l], statuscodes.count(presets[l])))
-    k = 0
-    statuscodes.clear()
+    print("File size: {}".format(k))
+    for l in range(8):
+        if statuscodes[l] != 0:
+            print("{}: {}".format(status_presets[l], statuscodes[l]))
