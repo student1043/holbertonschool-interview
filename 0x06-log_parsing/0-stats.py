@@ -6,6 +6,7 @@ status_presets = ["200", "301", "400", "401", "403", "404", "405", "500"]
 statuscodes = [0, 0, 0, 0, 0, 0, 0, 0]
 i = 0
 k = 0
+l = 0
 try:
     for line in sys.stdin:
         splitline = line.split()
@@ -21,7 +22,7 @@ try:
             for l in range(8):
                 if statuscodes[l] != 0:
                     print('{}: {}'.format(status_presets[l], statuscodes[l]))
-except Exception:
+except KeyboardInterrupt:
     pass
 finally:
     print("File size: {}".format(k))
