@@ -6,30 +6,19 @@ def validUTF8(data):
     """
     ValidUTF8 Function
     """
-    k = 0
-    while k < len(data):
-        lead = data[k]
-        if 0 <= lead < 128:
-            k += 1
-        elif 128 <= lead < 192:
-            return False
-        elif 192 <= lead < 224:
-            if k+1 < len(data) and 128 <= data[k+1] < 192:
-                k += 2
-            else:
+    n_bytes = 0
+    for num in data:
+        bin_rep = format(num, '#010b')[-8:]
+        if n_bytes == 0:
+            for bit in bin_rep:
+                if bit == '0': break
+                n_bytes += 1
+            if n_bytes == 0:
+                continue
+            if n_bytes == 1 or n_bytes > 4:
                 return False
-        elif 224 <= lead < 240:
-            if k+2 < len(data) and 128 <= data[k+1] < 192 and 128 <= data[k+2] < 192:
-                k += 3
-            else:
-                return False
-        elif 240 <= lead < 248:
-            if k+3 < len(data) and 128 <= data[k+1] < 192 and 128 <= data[k+2] < 192 and 128 <= data[k+3] < 192:
-                k += 4
-            else:
-                return False
-        elif 248 <= lead <= 255:
-            return False
         else:
-            return True
-    return True
+            if not (bin_rep[0] == '1' and bin_rep[1] == '0'):
+                return False
+        n_bytes -= 1
+    return n_bytes == 0
