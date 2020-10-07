@@ -12,12 +12,12 @@ while (l && k)
 {
 if (l % 3 == 1 && k % 3 == 1)
 {
-return(1);
+return (1);
 }
 l = l / 3;
 k = k / 3;
 }
-return(0);
+return (0);
 }
 
 /**
