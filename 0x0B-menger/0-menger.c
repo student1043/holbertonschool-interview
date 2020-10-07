@@ -29,6 +29,7 @@ void menger(int level)
 {
 int l, k;
 int mengsize = pow(3, level);
+
 for (l = 0; l < mengsize; l++)
 {
 for (k = 0; k < mengsize; k++)
@@ -41,7 +42,7 @@ else
 {
 printf("#");
 }
-printf("\n");
 }
+printf("\n");
 }
 }
