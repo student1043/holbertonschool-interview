@@ -50,7 +50,7 @@ line[i + 1] = 0;
 }
 else
 {
-for (i = size - 1; i > 0; i--)
+for (i = size - 1; i >= 1; i--)
 {
 if (line[i] == line[i - 1])
 {
@@ -71,12 +71,12 @@ line[i - 1] = 0;
  */
 void slider(int *line, size_t size, int direction)
 {
-size_t i, j;
+int i, j;
 if (direction == SLIDE_LEFT)
 {
-for (i = 0; i < size - 1; i++)
+for (i = 0; i < (int)size - 1; i++)
 {
-for (j = i + 1; j < size; j++)
+for (j = i + 1; j < (int)size; j++)
 {
 if (line[i] == 0 && line[j] != 0)
 {
@@ -88,9 +88,9 @@ line[j] = 0;
 }
 else
 {
-for (i = size - 1; i > 0; i--)
+for (i = (int)size - 1; i >= 0; i--)
 {
-for (j = i - 1; j > 0; j--)
+for (j = i - 1; j >= 0; j--)
 {
 if (line[i] == 0 && line[j] != 0)
 {
