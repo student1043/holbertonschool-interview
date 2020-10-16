@@ -5,10 +5,8 @@ Minimum Operations
 
 def minOperations(n):
     """Min OP"""
-    i = 1
-    counter = 0
-    copyall = 0
-    if n < 2:
+    if n <= 1:
         return 0
-    while n is not i:
-        
+    for counter in range(2, n + 1):
+        if n % 1 == 0:
+            return minOperations(n // counter) + counter
