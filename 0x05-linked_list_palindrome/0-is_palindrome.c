@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -9,44 +7,28 @@
  */
 int is_palindrome(listint_t **head)
 {
-    if(head == NULL) {
-        return (1);
-    }
-    listint_t *mainnode;
-    listint_t *reversedlist;
-    mainnode = *head;
-    reversedlist = *head;
-    reversedlist = reverse(reversedlist);
-    while (reversedlist != NULL)
-    {
-        if(mainnode->n != reversedlist->n)
-        {
-            return(0);
-        }
-    reversedlist = reversedlist->next;
-    mainnode = mainnode->next;
-    }
-    return(1);
-}
-
-
-/**
- * reverse - check the code for Holberton School students.
- * @head: the head of the linked list
- * Return: Always 0.
- */
-listint_t *reverse(listint_t *head)
+int i = 0, j = 0, counter;
+listint_t *first, *last;
+if (!head)
+return (0);
+if (!(*head))
+return (1);
+last = *head;
+first = *head;
+j += 1;
+while (last->next)
 {
-    listint_t *prev = NULL;
-    listint_t *current = head; 
-    listint_t *next = NULL;
-    while(current != NULL)
-    {
-        next = current->next; 
-        current->next = prev; 
-        prev = current; 
-        current = next; 
+last = last->next;
+j++;
 }
-
-    return(prev); 
+counter = j / 2;
+while (i <= counter)
+{
+if (first->n != last->n)
+return (0);
+first += 2;
+last -= 2;
+counter++;
+}
+return (1);
 }
