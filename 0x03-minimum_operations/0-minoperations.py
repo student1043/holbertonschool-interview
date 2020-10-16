@@ -3,6 +3,7 @@
 Minimum Operations
 """
 
+
 def minOperations(n):
     """Min OP"""
     counter = 2
