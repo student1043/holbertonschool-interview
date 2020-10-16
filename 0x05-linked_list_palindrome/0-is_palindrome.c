@@ -28,7 +28,7 @@ if (first->n != last->n)
 return (0);
 first += 2;
 last -= 2;
-counter++;
+i++;
 }
 return (1);
 }
