@@ -5,7 +5,8 @@
 #include "binary_trees.h"
 
 /**
- * sorted_array_to_avl - Entry point
+ * sorted_array_to_avl - Making a sorted array AVL
+ *
  * @array: the array
  * @size: size of the array
  * Return: 0 on success, error code on failure
@@ -22,7 +23,8 @@ avl_t * sorted_array_to_avl(int * array, size_t size) {
 }
 
 /**
- * Method - Entry point
+ * Method - The Method of Constructing the AVL Tree
+ *
  * @array: the array
  * @start: start of the array
  * @end: end of array
