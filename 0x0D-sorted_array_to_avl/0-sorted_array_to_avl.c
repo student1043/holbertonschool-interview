@@ -10,15 +10,15 @@
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-    int count;
-    if (!array || size < 1)
-        return (NULL);
-    for (count = 1; count < (int)size; count++)
-    {
-        if (array[count] < array[count - 1])
+        int count;
+        if (!array || size < 1)
             return (NULL);
-    }
-    return (Method(array, 0, size - 1, NULL));
+        for (count = 1; count < (int)size; count++)
+        {
+            if (array[count] < array[count - 1])
+                return (NULL);
+        }
+        return (Method(array, 0, size - 1, NULL));
 }
 
 
@@ -32,20 +32,20 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  */
 avl_t *Method(int *array, int start, int end, avl_t *parent)
 {
-    if (start > end)
-    {
-        return (NULL);
-    }
-    int mid = (start + end) / 2;
-    avl_t *bst;
-    bst = malloc(sizeof(avl_t));
-    if (!bst)
-    {
-        return (NULL);
-    }
-    bst->n = array[mid];
-    bst->parent = parent;
-    bst->left = Method(array, start, mid - 1, bst);
-    bst->right = Method(array, mid + 1, end, bst);
-    return (bst);
+        if (start > end)
+        {
+            return (NULL);
+        }
+        int mid = (start + end) / 2;
+        avl_t *bst;
+        bst = malloc(sizeof(avl_t));
+        if (!bst)
+        {
+            return (NULL);
+        }
+        bst->n = array[mid];
+        bst->parent = parent;
+        bst->left = Method(array, start, mid - 1, bst);
+        bst->right = Method(array, mid + 1, end, bst);
+        return (bst);
 }
