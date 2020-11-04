@@ -5,9 +5,9 @@
 /**
  * sorted_array_to_avl - Making a sorted array AVL
  *
- * @array: the array
+ * @array: the array in which the AVL will be made of
  * @size: size of the array
- * Return: 0 on success, error code on failure
+ * Return: Returns the AVL List That is Made
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
@@ -25,11 +25,11 @@ return (Method(array, 0, size - 1, NULL));
 /**
  * Method - The Method of Constructing the AVL Tree
  *
- * @array: the array
- * @start: start of the array
- * @end: end of array
- * @parent: AVL Parent
- * Return: 0 on success, error code on failure
+ * @array: The Array Containing the Number for the AVL
+ * @start: starting of the array that will be made for the AVL
+ * @end: ending of array that will be made for the AVL
+ * @parent: The AVL Parent Implemented to track it
+ * Return: Returns the List Before Getting Sorted
  */
 avl_t *Method(int *array, int start, int end, avl_t *parent)
 {
