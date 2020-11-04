@@ -18,7 +18,7 @@ for (count = 1; count < (int)size; count++)
 if (array[count] < array[count - 1])
 return (NULL);
 }
-return (Method(array, 0, size - 1, NULL));
+return (Method(array, 0, (int)size - 1, NULL));
 }
 
 
