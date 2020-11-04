@@ -15,12 +15,12 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 
 	if (!array || size < 1)
 		return (NULL);
-	for (count = 1; count < (int) size; count++)
+	for (count = 1; count < (int)size; count++)
 	{
 		if (array[count] < array[count - 1])
 			return (NULL);
 	}
-	return (Method(array, 0, size - 1, NULL));
+	return (Method(array, 0, (int)size - 1, NULL));
 }
 
 /**
@@ -34,12 +34,14 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  */
 avl_t *Method(int *array, int start, int end, avl_t *parent)
 {
+	avl_t *bst;
+	int mid;
+
 	if (start > end)
 	{
 		return (NULL);
 	}
-	int mid = (start + end) / 2;
-	avl_t *bst;
+	mid = (start + end) / 2;
 
 	bst = malloc(sizeof(avl_t));
 	if (!bst)
