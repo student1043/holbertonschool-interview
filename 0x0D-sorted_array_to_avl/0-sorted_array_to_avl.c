@@ -10,8 +10,12 @@
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-if (!array)
+int count;
+if (!array || size < 1)
+return (NULL);
+for (count = 1; count < (int)size; count++)
 {
+if (array[count] < array[count - 1])
 return (NULL);
 }
 return (Method(array, 0, size - 1, NULL));
