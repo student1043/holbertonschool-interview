@@ -27,7 +27,7 @@ def SetChess(chess, row):
 
 
 if len(sys.argv) != 2:
-    print("nqueens N")
+    print("Usage: nqueens N")
     exit(1)
 if not sys.argv[1].isdigit():
     print("N must be a number")
