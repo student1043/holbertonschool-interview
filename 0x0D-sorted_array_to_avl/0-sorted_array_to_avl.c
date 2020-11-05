@@ -11,7 +11,7 @@
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-	int count = 1;
+	int count;
 
 	if (!array)
     {
@@ -21,7 +21,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
     {
         return (NULL);
     }
-	for (; count < (int)size; count++)
+	for (count = 1; count < (int)size; count++)
 	{
 		if (array[count] < array[count - 1])
 			return (NULL);
