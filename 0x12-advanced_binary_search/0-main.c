@@ -17,3 +17,4 @@ int main(void)
     printf("Found %d at index: %d\n", 999, advanced_binary(array, size, 999));
     return (EXIT_SUCCESS);
 }
+
