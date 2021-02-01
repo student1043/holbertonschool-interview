@@ -8,15 +8,11 @@ def rain(walls):
     """
     0-rain
     """
-    total = 0
-    if not walls:
+    if not walls or len(walls) < 3:
         return 0
-    for i in range(1, len(walls) - 1):
-        left = walls[i]
-        for j in range(1, i):
-            left = max(left, walls[j])
-        right = walls[i]
-        for j in range(i + 1, len(walls)):
-            right = max(right, walls[j])
-        total += min(left, right) - walls[i]
+    total = 0
+    for i in range(1, len(walls)):
+        left_max = max(walls[:i+1])
+        right_max = max(walls[i:])
+        total += min(left_max, right_max) - walls[i]
     return total
