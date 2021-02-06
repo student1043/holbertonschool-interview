@@ -9,4 +9,6 @@ def count_words(subreddit, word_list):
     """
     counting words
     """
-    count_words(subreddit, word_list)
+    mysubs = []
+    count_words(subreddit, mysubs)
+    print(sorted(mysubs))
