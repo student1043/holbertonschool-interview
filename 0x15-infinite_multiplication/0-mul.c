@@ -15,13 +15,51 @@ if (argc != 3)
 printf("Error\n");
 exit(98);
 }
-else if (!isdigit(*argv[1]) || !isdigit(*argv[2]))
+else if (digitchecker(*argv[1]) == 0 || digitchecker(*argv[2]) == 0)
 {
 printf("Error\n");
 exit(98);
 }
 else
 {
-printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
+printf("%d\n", converter(argv[1]) * converter(argv[2]));
 }
+}
+
+
+/**
+ * digitchecker - Entry point
+ * @number: number of arguments
+ * Return: 0 on success, error code on failure
+ */
+int digitchecker(char *number)
+{
+int i;
+for (i = 0; number; i++)
+{
+if (number[i] < '0' || number[i] > '9')
+{
+return 0;
+}
+}
+return 1;
+}
+
+
+
+/**
+ * converter - Entry point
+ * @thenum: number of arguments
+ * Return: 0 on success, error code on failure
+ */
+int converter(char *str)
+{
+int res = 0;
+for (int i = 0; str[i] != '\0'; ++i)
+{
+if (str[i]> '9' || str[i]<'0')
+return -1;
+res = res*10 + str[i] - '0';
+}
+return res;
 }
