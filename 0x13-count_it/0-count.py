@@ -18,6 +18,9 @@ def count_words(subreddit, word_list):
     Javascript should count as javascript, but java should not).
     """
     mysubs = []
+    for mysub in subreddit:
+        if subreddit:
+            count_words(subreddit, mysubs)
     count_words(subreddit, mysubs)
     print("you: 53")
     print("unpopular: 31")
