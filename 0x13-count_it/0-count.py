@@ -2,7 +2,7 @@
 """
 0-count project
 """
-import sys
+import request
 
 
 def count_words(subreddit, word_list):
