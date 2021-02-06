@@ -2,6 +2,44 @@
 #include <stdio.h>
 #include <ctype.h>
 
+
+/**
+ * digitchecker - Entry point
+ * @number: number of arguments
+ * Return: 0 on success, error code on failure
+ */
+int digitchecker(char number)
+{
+int i;
+for (i = 0; number; i++)
+{
+if (number < '0' || number > '9')
+{
+return (0);
+}
+}
+return (1);
+}
+
+
+/**
+ * converter - Entry point
+ * @str: number of arguments
+ * Return: 0 on success, error code on failure
+ */
+int converter(char *str)
+{
+int res = 0;
+for (int i = 0; str[i] != '\0'; ++i)
+{
+if (str[i] > '9' || str[i] < '0')
+return (-1);
+res = res * 10 + str[i] - '0';
+}
+return (res);
+}
+
+
 /**
  * main - Entry point
  * @argc: number of arguments
@@ -24,42 +62,4 @@ else
 {
 printf("%d\n", converter(argv[1]) * converter(argv[2]));
 }
-}
-
-
-/**
- * digitchecker - Entry point
- * @number: number of arguments
- * Return: 0 on success, error code on failure
- */
-int digitchecker(char *number)
-{
-int i;
-for (i = 0; number; i++)
-{
-if (number[i] < '0' || number[i] > '9')
-{
-return 0;
-}
-}
-return 1;
-}
-
-
-
-/**
- * converter - Entry point
- * @thenum: number of arguments
- * Return: 0 on success, error code on failure
- */
-int converter(char *str)
-{
-int res = 0;
-for (int i = 0; str[i] != '\0'; ++i)
-{
-if (str[i]> '9' || str[i]<'0')
-return -1;
-res = res*10 + str[i] - '0';
-}
-return res;
 }
