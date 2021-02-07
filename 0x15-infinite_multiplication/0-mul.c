@@ -62,5 +62,5 @@ else
 {
 printf("%d\n", converter(argv[1]) * converter(argv[2]));
 }
-return;
+return (0);
 }
