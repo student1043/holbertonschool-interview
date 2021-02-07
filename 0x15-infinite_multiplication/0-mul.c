@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
 
 
 /**
@@ -13,7 +12,7 @@ int digitchecker(char number)
 int i;
 for (i = 0; number; i++)
 {
-if (number < '0' || number > '9')
+if (number[i] < '0' || number[i] > '9')
 {
 return (0);
 }
