@@ -7,7 +7,7 @@
  * @number: number of arguments
  * Return: 0 on success, error code on failure
  */
-int digitchecker(char number)
+int digitchecker(char *number)
 {
 int i;
 for (i = 0; number[i]; i++)
@@ -52,7 +52,7 @@ if (argc != 3)
 printf("Error\n");
 exit(98);
 }
-else if (digitchecker(*argv[1]) == 0 || digitchecker(*argv[2]) == 0)
+else if (digitchecker(argv[1]) == 0 || digitchecker(argv[2]) == 0)
 {
 printf("Error\n");
 exit(98);
