@@ -28,7 +28,8 @@ return (1);
  */
 int converter(char *str)
 {
-int res = 0, i;
+int res = 0;
+int i;
 for (int i = 0; str[i] != '\0'; ++i)
 {
 if (str[i] > '9' || str[i] < '0')
