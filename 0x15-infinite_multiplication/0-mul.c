@@ -10,7 +10,7 @@
 int digitchecker(char number)
 {
 int i;
-for (i = 0; number; i++)
+for (i = 0; number[i]; i++)
 {
 if (number[i] < '0' || number[i] > '9')
 {
