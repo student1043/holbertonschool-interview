@@ -13,4 +13,5 @@ def pascal_triangle(n):
             pascal.append(tree[x-1][y-1] + tree[x-1][y])
         pascal.append(1)
         tree.append(pascal)
+        pascal = []
     return tree
