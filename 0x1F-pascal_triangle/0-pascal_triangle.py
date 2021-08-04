@@ -2,6 +2,8 @@
 """
 0-pascal_triangle
 """
+
+
 def pascal_triangle(n):
     pascal = []
     if n <= 0:
