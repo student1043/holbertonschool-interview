@@ -28,7 +28,7 @@ return (max);
 void radix_sort(int *array, size_t size)
 {
 size_t i;
-int bucket[10][10], bucket_cnt[10];
+int bucket[101][101], bucket_cnt[101];
 int j, k, r, NOP = 0, divisor = 1, lar, pass;
 if (array == NULL || size < 2)
 {
@@ -42,7 +42,7 @@ lar /= 10;
 }
 for (pass = 0; pass < NOP; pass++)
 {
-for (i = 0; i < 10; i++)
+for (i = 0; i < 101; i++)
 {
 bucket_cnt[i] = 0;
 }
@@ -53,7 +53,7 @@ bucket[r][bucket_cnt[r]] = array[i];
 bucket_cnt[r] += 1;
 }
 i = 0;
-for (k = 0; k < 10; k++)
+for (k = 0; k < 101; k++)
 {
 for (j = 0; j < bucket_cnt[k]; j++)
 {
