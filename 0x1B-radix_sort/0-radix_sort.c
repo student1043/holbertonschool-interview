@@ -4,13 +4,14 @@
 /**
  * get_max - gets the max
  * @array: array
- * @n: number
+ * @size: number
  * Return: 0
  */
-int get_max(int *array, size_t n)
+int get_max(int *array, size_t size)
 {
+size_t i;
 int max = array[0];
-for (size_t i = 1; i < n; i++)
+for (i = 1; i < size; i++)
 if (array[i] > max)
 max = array[i];
 return (max);
@@ -27,6 +28,10 @@ void radix_sort(int *array, size_t size)
 size_t i;
 int bucket[10][10], bucket_cnt[10];
 int j, k, r, NOP = 0, divisor = 1, lar, pass;
+if (array == NULL || size < 2)
+{
+return;
+}
 lar = get_max (array, size);
 while (lar > 0)
 {
