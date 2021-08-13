@@ -18,4 +18,3 @@ printf("\n");
 print_array(array, n);
 return (0);
 }
-

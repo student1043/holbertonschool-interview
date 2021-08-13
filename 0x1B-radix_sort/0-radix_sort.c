@@ -58,4 +58,3 @@ divisor *= 10;
 print_array(array, size);
 }
 }
-
