@@ -22,18 +22,18 @@ int main(void)
     TEST_MATCH("HH", "H*");
     TEST_MATCH("HHHHHHHHHHHHHHHHH", "H*");
 
-    TEST_MATCH("Text", ".*");
-    TEST_MATCH("YESS", ".*");
-    TEST_MATCH("RANDOM", ".*");
-    TEST_MATCH("RANDOMMM", ".*");
+    TEST_MATCH("Holberton", ".*");
+    TEST_MATCH("Alex", ".*");
+    TEST_MATCH("Guillaume", ".*");
+    TEST_MATCH("Julien", ".*");
 
-    TEST_MATCH("Code", "Z*H.*");
-    TEST_MATCH("Code", "Z*H.*olberton");
-    TEST_MATCH("Code", "Z*H.*o.");
-    TEST_MATCH("Code", "Z*H.*o");
+    TEST_MATCH("Holberton", "Z*H.*");
+    TEST_MATCH("Holberton", "Z*H.*olberton");
+    TEST_MATCH("Holberton", "Z*H.*o.");
+    TEST_MATCH("Holberton", "Z*H.*o");
 
-    TEST_MATCH("Code", "Code");
-    TEST_MATCH("Code", ".olberton");
+    TEST_MATCH("Holberton", "holberton");
+    TEST_MATCH("Holberton", ".olberton");
 
     TEST_MATCH("!H@o#l$b%e^r&t(o)n_", "!.@.#.$.%.^.&.(.)._");
 
