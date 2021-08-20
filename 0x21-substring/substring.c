@@ -1,6 +1,5 @@
 #include "substring.h"
 
-
 /**
  * find_substring - Entry point
  * @s: string
