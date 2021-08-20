@@ -11,40 +11,38 @@
  */
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-char *temp, *p = NULL;
-int slen = strlen(s), dictlen = 0, count = 0, *pmark;
-int regwordlen = strlen(words[0]);
-dictlen = regwordlen * nb_words;
-temp = calloc((dictlen + 1), sizeof(char));
-pmark = calloc((slen + 1), sizeof(int));
-for (int i = 0; i <= slen - dictlen;)
-{
-strncpy(temp, &s[i], dictlen);
-for (int j = 0; j < nb_words; j++)
-{
-for (int k = 0; k < dictlen ;)
-{
-p = strstr(temp + k, words[j]);
-if (p != NULL && ((p - temp) % regwordlen) == 0)
-break;
-else if (p != NULL)
-{
-k = p - temp + 1;
-p = NULL;
-}
-else if (p == NULL)
-goto nextseg;
-}
-if (p != NULL)
-memset(p, '.', regwordlen);
-else
-goto nextseg;
-}
-if (slen != 0 && dictlen != 0)
-pmark[count++] = i;
-nextseg:
-i++;
-}
-*n = count;
-return (pmark);
+	int len = strlen(s);
+	int wordLen = strlen(words[0]), j, i = 0, k;
+	int *output = (int *)malloc(len * sizeof(int));
+	*n = 0;
+	int *found = (int *)malloc(nb_words * sizeof(int));
+
+	while (i <= len - nb_words * wordLen)
+	{
+	for (j = 0; j < nb_words; j++)
+	{
+		found[j] = 0;
+	}
+	for (j = 0; j < nb_words; j++)
+	{
+		for (k = 0; k < nb_words; k++)
+		{
+		if (found[k] == 0 && strncmp(s + i + j * wordLen, words[k], wordLen) == 0)
+		{
+			found[k] = 1;
+			break;
+		}
+		}
+		if (k == nb_words)
+		{
+		break;
+		}
+	}
+	if (j == nb_words)
+	{
+		output[(*n)++] = i;
+	}
+	i++;
+	}
+	return (output);
 }
