@@ -10,11 +10,13 @@
  */
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-	int len = strlen(s);
-	int wordLen = strlen(words[0]), j, i = 0, k;
-	int *output = (int *)malloc(len * sizeof(int));
+	int wordLen, j,i, k, *output, *found, len;
+	wordLen = strlen(words[0]);
+	i = 0;
+	len = strlen(s);
+	*output = (int *)malloc(len * sizeof(int));
 	*n = 0;
-	int *found = (int *)malloc(nb_words * sizeof(int));
+	*found = (int *)malloc(nb_words * sizeof(int));
 
 	while (i <= len - nb_words * wordLen)
 	{
@@ -45,4 +47,3 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 	}
 	return (output);
 }
-
