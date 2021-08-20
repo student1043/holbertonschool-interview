@@ -10,7 +10,8 @@
  */
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-	int wordLen, j,i, k, *output, *found, len;
+	int wordLen, j, i, k, *output, *found, len;
+
 	wordLen = strlen(words[0]);
 	i = 0;
 	len = strlen(s);
