@@ -8,6 +8,8 @@ def isWinner(x, nums):
     """
     iswinner
     """
+    if not nums or x < 1:
+        return None
     p = [0] * 11 ** 5
     pr = [0] * 11 ** 5
     k = 0
