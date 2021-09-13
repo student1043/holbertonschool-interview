@@ -11,6 +11,8 @@ int regex_match(char const *str, char const *pattern)
 {
 	if (*str == '\0' && *pattern == '\0')
 		return (1);
+	if ((*str == '\0') && (*pattern == '*'))
+		return (regex_match(str, pattern + 1));
 	if (!*str)
 		return (!*pattern || (pattern[1] == '*' && regex_match(str, pattern + 2)));
 	if (pattern[1] == '*')
