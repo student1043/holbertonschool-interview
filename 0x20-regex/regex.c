@@ -9,56 +9,16 @@
  */
 int regex_match(char const *str, char const *pattern)
 {
-  int wildcard = 0;
-
-  do
-  {
-    if ((*pattern == *str) || (*pattern == '?'))
-    {
-      str++;
-      pattern++;
-    }
-    else if (*pattern == '*')
-    {
-      if (*(++pattern) == '\0')
-      {
-        return 1;
-      }
-      wildcard = 1;
-    }
-    else if (*pattern == '.')
-    {
-      if (*(++pattern) == '\0')
-      {
-        return 1;
-      }
-      wildcard = 1;
-    }
-    else if (wildcard)
-    {
-      if (*str == *pattern)
-      {
-        wildcard = 0;
-        str++;
-        pattern++;
-      }
-      else
-      {
-        str++;
-      }
-    }
-    else
-    {
-      return 0;
-    }
-  } while (*str);
-
-  if (*pattern == '\0')
-  {
-    return 1;
-  }
-  else
-  {
-    return 0;
-  }
+	if (*str == '\0' && *pattern == '\0')
+		return (1);
+	if (!*str)
+		return (!*pattern || (pattern[1] == '*' && regex_match(str, pattern + 2)));
+	if (pattern[1] == '*')
+		return ((regex_match(str, pattern + 1)) || (regex_match(str + 1, pattern))
+			 ?
+				(regex_match(str + 1, pattern) || regex_match(str, pattern + 2))
+			 :
+				(regex_match(str, pattern + 2)));
+	return (regex_match(str + 1, pattern + 1) &&
+	((*pattern == '.' || *pattern == *str)));
 }

@@ -6,5 +6,6 @@
 #include <string.h>
 
 int regex_match(char const *str, char const *pattern);
+int match(char const *str, char const *pattern);
 
 #endif /* REGEX_H */
