@@ -18,6 +18,6 @@ def isWinner(x, nums):
                 p[j] = 1
         pr[i] = k
     if pr[max(nums)] % 2 == 0:
-        return "Maria"
-    else:
         return "Ben"
+    else:
+        return "Maria"
