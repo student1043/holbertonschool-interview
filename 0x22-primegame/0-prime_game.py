@@ -23,3 +23,4 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return "Maria"
+    return None
